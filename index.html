@@ -7,10 +7,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    <meta name="description" content="EnDive Benchmark" />
+    <meta name="description" content="NovelHopQA Benchmark" />
     <meta name="author" content="" />
-    <link rel="icon" href="./logo/ChatGPT Image May 26, 2025, 02_49_32 PM.png" type="image/x-icon" />
-    <title>EnDive</title>
+    <link rel="icon" type="image/png" href="logo/novelhopqa.png" />
+    <title>NovelHopQA</title>
 
     <!-- Bootstrap core CSS -->
     <link href="./style/bootstrap.min.css" rel="stylesheet" />
@@ -42,18 +42,30 @@
           src="./logo/algoverse_logo_higher_quality-removebg-preview.png"
           alt="Algoverse Logo"
         />
+        <img
+          style="margin-top: 2px; padding: 8px"
+          height="70px"
+          src="./logo/Seal_of_University_of_California__Berkeley.svg-removebg-preview.png"
+          alt="UC Berkeley Logo"
+        />
+        <img
+          style="margin-top: 2px; padding: 8px; margin-left: -8px;"
+          height="70px"
+          src="./logo/bmc-removebg-preview.png"
+          alt="BMC Logo"
+        />
       </div>
       <div class="container">
         <div class="row">
           <div class="col-lg-10 col-md-12 mx-auto">
             <div class="row site-heading flex-box">
               <div class="col-lg-3">
-                <img id="logo-img" src="logo/ChatGPT Image May 26, 2025, 02_49_32 PM.png" alt="logo" style="max-height: 230px; margin-left: 50px;" />
+                <img id="logo-img" src="logo/novelhopqa.png" alt="logo" style="max-height: 230px; margin-left: 50px;" />
               </div>
               <div class="col-lg-9">
                 <div class="align-middle">
-                  <h1 id="bird-title">EnDive</h1>
-                  <span class="subheading" id="caption">A Cross-Dialect Benchmark for Fairness & Reasoning in LLMs</span>
+                  <h1 id="bird-title" style="color: #A0522D;">NovelHopQA</h1>
+                  <span class="subheading" id="caption">Diagnosing Multi-Hop Reasoning Failures in Long Narrative Contexts</span>
                 </div>
               </div>
             </div>
@@ -68,10 +80,10 @@
         <div class="col-lg-5">
           <div class="list-group">
             <div class="list-group-item" id="introduction">
-              <h4>About EnDive</h4>
+              <h4>About NovelHopQA</h4>
               <p>
-                EnDive (<b>En</b>glish <b>Dive</b>rsity) is a large-scale evaluation suite for measuring language model fairness and performance across underrepresented English dialects. We include over 40,000 dialect-specific examples spanning 12 natural language understanding tasks and 5 diverse dialects: AAVE, ChcE, JamE, IndE, and CollSgE. The benchmark reveals real-world disparities in how models perform on dialectal versus standard English data, helping developers build more inclusive, robust, and trustworthy language systems.
-              </p>
+  NovelHopQA is a large-scale benchmark designed to test how language models handle multi-step reasoning over long passages from real novels. With 4,000 questions spanning 64k–128k-token excerpts and up to 4 reasoning hops, it reveals that even top models struggle as tasks get longer and more complex. NovelHopQA highlights key challenges in deep comprehension and multi-hop inference, providing a valuable tool for improving future language models.
+</p>
               <div id="button-group" style="display: flex; flex-direction: column; gap: 16px; align-items: stretch; margin-top: 24px;">
                 <a href="https://arxiv.org/abs/2504.07100" target="_blank" style="width: 100%;">
                   <button type="button" class="btn btn-a" style="width: 100%; font-size: 1.15em;">📄 Paper</button>
@@ -79,7 +91,7 @@
                 <a href="https://github.com/endiveee/EnDive-Code" target="_blank" style="width: 100%;">
                   <button type="button" class="btn btn-b" style="width: 100%; font-size: 1.15em;">💻 Code</button>
                 </a>
-                <a href="https://huggingface.co/EnDivee" target="_blank" style="width: 100%;">
+                <a href="https://huggingface.co/datasets/abhaygupta1266/novelhopqa" target="_blank" style="width: 100%;">
                   <button type="button" class="btn btn-d" style="width: 100%; font-size: 1.15em;">🔥 Dataset</button>
                 </a>
                 </div>
@@ -115,50 +127,80 @@
             </style>
 
             <div class="list-group-item" id="overview">
-              <h4>Key Findings & Impact</h4>
+              <h4>Key Findings &amp; Impact</h4>
               <div class="scroll-container">
                 <div class="card card-outline-secondary mb-4" style="text-align: left">
                   <div class="card-body" style="background-color: #f1f6f9">
-                    <p style="margin-bottom: 15px;">EnDive evaluates seven state-of-the-art large language models across tasks in language understanding, algorithmic reasoning, mathematics, and logic. Our benchmark reveals significant performance disparities—models consistently underperform on dialectal inputs compared to Standard American English.</p>
-                    
-                    <h5 style="color: #21807a; margin-top: 20px;">Benchmark Features</h5>
+                    <h5 style="color: #A0522D;">Paper Overview</h5>
+                    <div style="text-align:center; margin: 2em 0 2.5em 0;">
+                      <img src="logo/Untitled_drawing_5-1.png" alt="Simplified Methodology Diagram" style="max-width: 95%; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(80,80,80,0.06); border: 1px solid #e0e0e0;">
+                      <div style="font-size: 1.05em; color: #555; margin-top: 0.7em; font-style: italic;">
+                        <strong>Figure:</strong> <span style="color:#A0522D;">Simplified Methodology.</span> NovelHopQA constructs multi-hop QA chains by extracting high-frequency keywords from novels, filtering paragraphs, and incrementally building reasoning paths (hops) that culminate in challenging question–answer pairs. Each hop integrates more context, enabling deeper reasoning.
+                      </div>
+                    </div>
+                    <p style="margin-bottom: 15px;">NovelHopQA is the first benchmark to jointly vary both hop depth (1-4 hops) and context length (64k-128k tokens) in natural narrative settings. Current large language models (LLMs) struggle to answer questions that span tens of thousands of tokens, especially when multi-hop reasoning is involved. While prior benchmarks explore long-context comprehension or multi-hop reasoning in isolation, none jointly vary context length and reasoning depth in natural narrative settings. When crucial evidence is buried in the middle of a long context, accuracy can plunge by more than 20 points <a href="https://arxiv.org/abs/2307.03172" target="_blank">(Liu et al., 2023)</a>. Even frontier models score below 50% exact match on multi-document suites, showing that larger context windows alone cannot solve cross-document reasoning.</p>
+
+                    <h5 style="color: #A0522D; margin-top: 20px;">Related Work</h5>
+                    <p>Multi-hop benchmarks fall into two groups:</p>
                     <ul style="padding-left: 20px;">
-                      <li>40,000+ dialect-specific examples across 12 NLU tasks</li>
-                      <li>Five diverse dialects: AAVE, ChcE, JamE, IndE, and CollSgE</li>
-                      <li>Human-validated translations with high faithfulness scores</li>
-                      <li>Comprehensive evaluation of seven leading LLMs</li>
+                      <li><strong>Multi-hop reasoning:</strong> WikiHop <a href="https://arxiv.org/abs/1710.06481" target="_blank">(Welbl et al., 2018)</a> and HotpotQA <a href="https://arxiv.org/abs/1809.09600" target="_blank">(Yang et al., 2018)</a> probe two-hop reasoning over short Wikipedia passages. These datasets catalyzed advances in multi-hop inference but restrict inputs to at most a few thousand tokens.</li>
+                      <li><strong>Long context:</strong> NarrativeQA <a href="https://arxiv.org/abs/1712.07040" target="_blank">(Kociský et al., 2017)</a>, QuALITY <a href="https://arxiv.org/abs/2112.08608" target="_blank">(Pang et al., 2022)</a>, and NovelQA <a href="https://arxiv.org/abs/2403.12766" target="_blank">(Wang et al., 2024)</a> embrace longer inputs but focus on single-hop or summary questions. Standardized long-context suites like LongBench <a href="https://arxiv.org/abs/2308.14508" target="_blank">(Bai et al., 2024)</a> and LEval <a href="https://arxiv.org/abs/2307.11088" target="_blank">(An et al., 2023)</a> show that models use a fraction of their window sizes while keeping hop depth fixed.</li>
+                    </ul>
+                    <p>NovelHopQA fills this gap by simultaneously testing reasoning depth and long-context comprehension in coherent narratives.</p>
+
+                    <h5 style="color: #A0522D; margin-top: 20px;">Benchmark Features</h5>
+                    <ul style="padding-left: 20px;">
+                      <li>4,000 multi-hop QA examples from 83 full-length public-domain novels</li>
+                      <li>Context windows ranging from 64k to 128k tokens</li>
+                      <li>Questions require integrating 1–4 reasoning hops across narrative chains</li>
+                      <li>Human validation ensures high alignment (>6.5/7) and hop-match accuracy (>94%)</li>
+                    </ul>
+
+                    <h5 style="color: #A0522D; margin-top: 20px;">Methodology</h5>
+                    <p>We build NovelHopQA through a four-stage pipeline:</p>
+                    <ol style="padding-left: 20px;">
+                      <li><strong>Novel Selection:</strong> We selected 83 English novels from Project Gutenberg, spanning mystery, adventure, romance, and literary classics, including both first- and third-person narration.</li>
+                      <li><strong>Anchor-Keyword Discovery:</strong> For each novel, we prompted GPT-4o-mini to suggest five "anchor" keywords—characters, locations, or objects central to the plot. If any keyword appears fewer than 50 times in the text, we discard and re-sample.</li>
+                      <li><strong>Paragraph Chaining & QA Generation:</strong> We implemented a keyword-guided process that:
+                        <ul style="padding-left: 20px; margin-top: 5px;">
+                          <li>Selects paragraphs containing specific keywords</li>
+                          <li>Extracts new related keywords for subsequent hops</li>
+                          <li>Chains paragraphs with increasing hop depth (1-4)</li>
+                          <li>Regenerates QA pairs at each step to integrate new evidence</li>
+                        </ul>
+                      </li>
+                      <li><strong>QA Validation:</strong> We filter examples using model and human validation to ensure answerability and correct hop depth. Ten human annotators confirmed high alignment (>6.5/7) and hop-match accuracy (>94%).</li>
+                    </ol>
+
+                    <h5 style="color: #A0522D; margin-top: 20px;">Results</h5>
+                    <p>We evaluated six state-of-the-art models: o1, GPT-4o, GPT-4o-mini, Gemini 2.5 Pro, Gemini 2.0 Flash, and Gemini 2.0 Flash Lite. Key findings:</p>
+                    <ul style="padding-left: 20px;">
+                      <li><strong>Impact of hop depth:</strong> All models exhibit consistent performance degradation as hop depth increases. On average, accuracy drops roughly 12 points from 1-hop to 4-hop at 64k context length.</li>
+                      <li><strong>Impact of context length:</strong> Longer contexts also lead to reduced accuracy, though the effect is milder than that of hop count. Across models, 1-hop performance drops about 5 points when moving from 64k to 128k contexts.</li>
+                      <li><strong>No model maintains strong performance on the hardest tasks (4-hop at 128k)</strong>, where even top models dip below 80% accuracy.</li>
                     </ul>
                     
-                    <h5 style="color: #21807a; margin-top: 20px;">Model Performance</h5>
-                    <p>Even top-performing models like o1 and Gemini 2.5 Pro show performance gaps of 3-5% between dialectal and SAE inputs. Smaller models like GPT-4o-mini exhibit even wider disparities, with drops of up to 12% on certain dialects.</p>
-                    
-                    <h5 style="color: #21807a; margin-top: 20px;">Methodology</h5>
-                    <p>Our approach combines few-shot prompting with verified examples from native speakers to create dialect-specific translations. We apply BLEU-based filtering to ensure only substantive linguistic variations are included, creating a challenging benchmark that reveals true model biases.</p>
-                    
-                    <h5 style="color: #21807a; margin-top: 20px;">Human Validation</h5>
-                    <p>Native speakers of each dialect assessed our translations on faithfulness, fluency, formality, and information retention. Average scores exceeded 6.0/7 across all metrics, confirming the linguistic authenticity of our benchmark.</p>
+
                   </div>
                 </div>
               </div>
             </div>
             <div class="list-group-item" id="team">
-              <h4>EnDive Team</h4>
-              <div class="row">
-                <div class="col-md-12">
-                  <p style="margin-bottom: 15px;">
-                    EnDive is developed by researchers at Algoverse AI Research:
-                  </p>
-                  <ul style="padding-left: 20px;">
-                    <li><a href="https://www.linkedin.com/in/abhaygupta12/" target="_blank">Abhay Gupta (Lead Author)</a></li>
-                    <li><a href="https://www.linkedin.com/in/jacob-cheung1/" target="_blank">Jacob Cheung</a></li>
-                    <li><a href="https://www.linkedin.com/in/philip-meng/" target="_blank">Philip Meng</a></li>
-                    <li>Shayan Sayyed</li>
-                    <li><a href="https://www.linkedin.com/in/austen-liao/" target="_blank">Austen Liao (Senior Author)</a></li>
-                    <li><a href="https://www.linkedin.com/in/zhu-kevin1/" target="_blank">Kevin Zhu (Senior Author)</a></li>
-                    <li><a href="https://www.linkedin.com/in/sean-obrien-research/" target="_blank">Sean O'Brien (Senior Author)</a></li>
-                  </ul>
-                </div>
-              </div>
+              <h4>NovelHopQA Team</h4>
+<div class="row">
+  <div class="col-md-12">
+    <p style="margin-bottom: 15px;">
+      NovelHopQA is developed by researchers at Algoverse AI Research:
+    </p>
+    <ul style="padding-left: 20px;">
+      <li><a href="https://www.linkedin.com/in/abhaygupta12/" target="_blank">Abhay Gupta (Lead Author)</a></li>
+      <li><a href="https://www.linkedin.com/in/m1chae11u/" target="_blank">Michael Lu (Lead Investigator)</a></li>
+      <li><a href="https://www.linkedin.com/in/zhu-kevin1/" target="_blank">Kevin Zhu (Senior Author)</a></li>
+      <li><a href="https://www.linkedin.com/in/sean-obrien-research/" target="_blank">Sean O'Brien (Senior Author)</a></li>
+      <li><a href="https://www.linkedin.com/in/vasu-sharma-6b460592/" target="_blank">Vasu Sharma (Senior Author)</a></li>
+    </ul>
+  </div>
+</div>
             </div>
             
             <div class="list-group-item" id="contact">
@@ -197,272 +239,270 @@
             <div class="card-header">
               <ul class="nav nav-tabs card-header-tabs" id="leaderboard-tabs">
                 <li class="nav-item">
-                  <a class="nav-link active" id="accuracy-tab" href="javascript:void(0)" onclick="showTab('accuracy-content')">Accuracy</a>
+                  <a class="nav-link active" id="accuracy-tab" href="javascript:void(0)" onclick="showTab('accuracy-content')">Leaderboard</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" id="paper-tab" href="javascript:void(0)" onclick="showTab('paper-content')">Paper Overview</a>
                 </li>
               </ul>
+
             </div>
             <div class="tab-content" id="leaderboardTabContent">
               <div class="tab-pane fade show active" id="accuracy-content" role="tabpanel" aria-labelledby="accuracy-tab">
-                <div class="table-wrapper" style="overflow-x: auto;">
-                <p style="margin-top: 1em; margin-bottom: 1em;">
-This table compares how accurately different language models perform on Standard American English (SAE) versus various English dialects. Each column represents a specific dialect, and the scores reflect model performance when prompted in that dialect using chain-of-thought (CoT) reasoning. Significant drops in performance on dialects like African American English (AAVE) or Jamaican English (JamE), compared to SAE, indicate potential biases and reduced effectiveness. These disparities highlight the need to evaluate and improve AI fairness across diverse language varieties.
+                <div class="table-wrapper" style="overflow-x: visible; width: 900px; margin: 0 auto;">
+  <p style="margin-top: 1em; margin-bottom: 1em;">
+This table reports the accuracy (%) of six language models on the NovelHopQA benchmark, grouped by context length (64k, 96k, 128k tokens) and reasoning hop count (1–4). For each group, the highest model accuracy is bolded. Results show that all models experience accuracy drops as context length and hop count increase, revealing the challenge of multi-hop reasoning over long narratives.
 </p>
-              <table class="table table-striped table-bordered" id="accuracy-table" style="font-size: 0.9em;">
-                <thead class="thead-light">
-                  <tr>
-                    <th scope="col" rowspan="2" class="align-middle text-center" style="min-width: 120px;">Model</th>
-                    <th scope="col" colspan="2" class="text-center">AAVE</th>
-                    <th scope="col" colspan="2" class="text-center">ChcE</th>
-                    <th scope="col" colspan="2" class="text-center">CollSgE</th>
-                    <th scope="col" colspan="2" class="text-center">IndE</th>
-                    <th scope="col" colspan="2" class="text-center">JamE</th>
-                  </tr>
-                  <tr>
-                    <th scope="col" class="text-center">CoT</th>
-                    <th scope="col" class="text-center">SAE CoT</th>
-                    <th scope="col" class="text-center">CoT</th>
-                    <th scope="col" class="text-center">SAE CoT</th>
-                    <th scope="col" class="text-center">CoT</th>
-                    <th scope="col" class="text-center">SAE CoT</th>
-                    <th scope="col" class="text-center">CoT</th>
-                    <th scope="col" class="text-center">SAE CoT</th>
-                    <th scope="col" class="text-center">CoT</th>
-                    <th scope="col" class="text-center">SAE CoT</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="table-warning">
-  <td class="align-middle text-center"><a href="https://openai.com/index/introducing-openai-o1-preview/" target="_blank">🥇 o1</a></td>
-  <td class="align-middle text-center">89.13</td>
-  <td class="align-middle text-center"><b>93.15</b></td>
-  <td class="align-middle text-center">88.54</td>
-  <td class="align-middle text-center"><b>93.39</b></td>
-  <td class="align-middle text-center">89.14</td>
-  <td class="align-middle text-center"><b>93.50</b></td>
-  <td class="align-middle text-center">90.34</td>
-  <td class="align-middle text-center"><b>94.07</b></td>
-  <td class="align-middle text-center">89.40</td>
-  <td class="align-middle text-center"><b>93.14</b></td>
-</tr>
-<tr class="table-warning">
-  <td class="align-middle text-center"><a href="https://deepmind.google/technologies/gemini/pro/" target="_blank">🥈 Gemini 2.5 Pro</a></td>
-  <td class="align-middle text-center">88.89</td>
-  <td class="align-middle text-center"><b>92.06</b></td>
-  <td class="align-middle text-center">88.70</td>
-  <td class="align-middle text-center"><b>92.31</b></td>
-  <td class="align-middle text-center">89.02</td>
-  <td class="align-middle text-center"><b>92.14</b></td>
-  <td class="align-middle text-center">89.72</td>
-  <td class="align-middle text-center"><b>92.24</b></td>
-  <td class="align-middle text-center">89.19</td>
-  <td class="align-middle text-center"><b>92.18</b></td>
-</tr>
-<tr class="table-warning">
-  <td class="align-middle text-center"><a href="https://openai.com/index/hello-gpt-4o/" target="_blank">🥉 GPT-4o</a></td>
-  <td class="align-middle text-center">82.20</td>
-  <td class="align-middle text-center"><b>87.36</b></td>
-  <td class="align-middle text-center">80.37</td>
-  <td class="align-middle text-center"><b>87.35</b></td>
-  <td class="align-middle text-center">82.43</td>
-  <td class="align-middle text-center"><b>87.31</b></td>
-  <td class="align-middle text-center">83.30</td>
-  <td class="align-middle text-center"><b>87.34</b></td>
-  <td class="align-middle text-center">82.53</td>
-  <td class="align-middle text-center"><b>87.44</b></td>
-</tr>
-<tr>
-  <td class="align-middle text-center"><a href="https://www.deepseek.com/en" target="_blank">DeepSeek-v3</a></td>
-  <td class="align-middle text-center">82.06</td>
-  <td class="align-middle text-center"><b>87.36</b></td>
-  <td class="align-middle text-center">81.55</td>
-  <td class="align-middle text-center"><b>87.27</b></td>
-  <td class="align-middle text-center">81.65</td>
-  <td class="align-middle text-center"><b>87.37</b></td>
-  <td class="align-middle text-center">82.90</td>
-  <td class="align-middle text-center"><b>87.44</b></td>
-  <td class="align-middle text-center">81.40</td>
-  <td class="align-middle text-center"><b>87.38</b></td>
-</tr>
-<tr>
-  <td class="align-middle text-center"><a href="https://www.anthropic.com/news/claude-3-5-sonnet" target="_blank">Claude 3.5 Sonnet</a></td>
-  <td class="align-middle text-center">79.78</td>
-  <td class="align-middle text-center"><b>83.10</b></td>
-  <td class="align-middle text-center">81.15</td>
-  <td class="align-middle text-center"><b>88.78</b></td>
-  <td class="align-middle text-center">81.15</td>
-  <td class="align-middle text-center"><b>88.83</b></td>
-  <td class="align-middle text-center">79.61</td>
-  <td class="align-middle text-center"><b>88.82</b></td>
-  <td class="align-middle text-center">80.18</td>
-  <td class="align-middle text-center"><b>88.79</b></td>
-</tr>
-<tr>
-  <td class="align-middle text-center"><a href="https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct" target="_blank">LLaMa-3-8B Instruct</a></td>
-  <td class="align-middle text-center">82.69</td>
-  <td class="align-middle text-center"><b>87.49</b></td>
-  <td class="align-middle text-center">78.08</td>
-  <td class="align-middle text-center"><b>82.94</b></td>
-  <td class="align-middle text-center">78.41</td>
-  <td class="align-middle text-center"><b>83.00</b></td>
-  <td class="align-middle text-center">81.52</td>
-  <td class="align-middle text-center"><b>86.12</b></td>
-  <td class="align-middle text-center">79.14</td>
-  <td class="align-middle text-center"><b>83.20</b></td>
-</tr>
-<tr>
-  <td class="align-middle text-center"><a href="https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/" target="_blank">GPT-4o-mini</a></td>
-  <td class="align-middle text-center">74.53</td>
-  <td class="align-middle text-center"><b>78.27</b></td>
-  <td class="align-middle text-center">75.01</td>
-  <td class="align-middle text-center"><b>77.70</b></td>
-  <td class="align-middle text-center">80.59</td>
-  <td class="align-middle text-center"><b>86.61</b></td>
-  <td class="align-middle text-center">74.26</td>
-  <td class="align-middle text-center"><b>86.63</b></td>
-  <td class="align-middle text-center">80.56</td>
-  <td class="align-middle text-center"><b>86.60</b></td>
-</tr>
-                  <tr class="table-info">
-                    <td class="align-middle text-center"><b>Average</b></td>
-                    <td class="align-middle text-center">82.75</td>
-                    <td class="align-middle text-center"><b>86.97</b></td>
-                    <td class="align-middle text-center">81.91</td>
-                    <td class="align-middle text-center"><b>87.11</b></td>
-                    <td class="align-middle text-center">83.20</td>
-                    <td class="align-middle text-center"><b>88.39</b></td>
-                    <td class="align-middle text-center">83.09</td>
-                    <td class="align-middle text-center"><b>88.95</b></td>
-                    <td class="align-middle text-center">83.20</td>
-                    <td class="align-middle text-center"><b>88.39</b></td>
-                  </tr>
-                </tbody>
-              </table>
+  <table class="table table-striped table-bordered" id="accuracy-table" style="font-size: 0.9em; width: 100%;">
+    <thead class="thead-light">
+      <tr>
+        <th rowspan="2" class="align-middle text-center">Context</th>
+        <th rowspan="2" class="align-middle text-center">Hop</th>
+        <th class="text-center">🥇 Gemini 2.5 P</th>
+        <th class="text-center">🥈 o1</th>
+        <th class="text-center">🥉 4o</th>
+        <th class="text-center">Gemini 2.0 F</th>
+        <th class="text-center">Gemini 2.0 FL</th>
+        <th class="text-center">4o-mini</th>
+        <th class="text-center">Avg.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 64k -->
+      <tr><td rowspan="4" class="align-middle text-center">64k</td><td class="text-center">1</td><td class="text-center"><b>92.34</b></td><td class="text-center">92.51</td><td class="text-center">90.12</td><td class="text-center">87.37</td><td class="text-center">82.53</td><td class="text-center">75.49</td><td class="text-center">86.73</td></tr>
+      <tr><td class="text-center">2</td><td class="text-center"><b>87.84</b></td><td class="text-center">87.66</td><td class="text-center">84.25</td><td class="text-center">77.02</td><td class="text-center">71.39</td><td class="text-center">74.77</td><td class="text-center">80.48</td></tr>
+      <tr><td class="text-center">3</td><td class="text-center"><b>85.12</b></td><td class="text-center">84.99</td><td class="text-center">81.34</td><td class="text-center">74.25</td><td class="text-center">70.05</td><td class="text-center">73.14</td><td class="text-center">78.13</td></tr>
+      <tr><td class="text-center">4</td><td class="text-center"><b>82.45</b></td><td class="text-center">82.15</td><td class="text-center">78.47</td><td class="text-center">71.76</td><td class="text-center">65.33</td><td class="text-center">68.04</td><td class="text-center">74.69</td></tr>
+      <!-- 96k -->
+      <tr><td rowspan="4" class="align-middle text-center">96k</td><td class="text-center">1</td><td class="text-center">90.12</td><td class="text-center"><b>90.35</b></td><td class="text-center">88.83</td><td class="text-center">82.26</td><td class="text-center">78.44</td><td class="text-center">72.25</td><td class="text-center">83.71</td></tr>
+      <tr><td class="text-center">2</td><td class="text-center"><b>86.03</b></td><td class="text-center">85.88</td><td class="text-center">82.67</td><td class="text-center">74.02</td><td class="text-center">67.04</td><td class="text-center">67.44</td><td class="text-center">77.18</td></tr>
+      <tr><td class="text-center">3</td><td class="text-center"><b>83.71</b></td><td class="text-center">83.41</td><td class="text-center">80.41</td><td class="text-center">73.38</td><td class="text-center">66.05</td><td class="text-center">66.97</td><td class="text-center">75.66</td></tr>
+      <tr><td class="text-center">4</td><td class="text-center"><b>80.98</b></td><td class="text-center">80.68</td><td class="text-center">76.92</td><td class="text-center">70.26</td><td class="text-center">62.81</td><td class="text-center">65.59</td><td class="text-center">72.87</td></tr>
+      <!-- 128k -->
+      <tr><td rowspan="4" class="align-middle text-center">128k</td><td class="text-center">1</td><td class="text-center"><b>89.10</b></td><td class="text-center">88.76</td><td class="text-center">86.95</td><td class="text-center">81.77</td><td class="text-center">75.31</td><td class="text-center">70.03</td><td class="text-center">81.99</td></tr>
+      <tr><td class="text-center">2</td><td class="text-center"><b>84.70</b></td><td class="text-center">84.33</td><td class="text-center">80.52</td><td class="text-center">69.13</td><td class="text-center">62.21</td><td class="text-center">63.95</td><td class="text-center">74.14</td></tr>
+      <tr><td class="text-center">3</td><td class="text-center"><b>82.20</b></td><td class="text-center">81.92</td><td class="text-center">78.03</td><td class="text-center">68.78</td><td class="text-center">62.07</td><td class="text-center">62.95</td><td class="text-center">72.66</td></tr>
+      <tr><td class="text-center">4</td><td class="text-center">78.55</td><td class="text-center"><b>78.80</b></td><td class="text-center">74.64</td><td class="text-center">67.32</td><td class="text-center">57.39</td><td class="text-center">61.18</td><td class="text-center">69.65</td></tr>
+    </tbody>
+  </table>
+</div>
+
+                <h5 style="color: #A0522D; margin-top: 40px; font-size: 1.4rem; text-align: center;">Performance Visualizations</h5>
+                <p style="margin-bottom: 1.5em; font-size: 1.05rem; text-align: center;">The following graphs visualize model performance across different hop depths and context lengths, clearly showing the consistent accuracy drops as both factors increase.</p>
+                
+                <div class="container-fluid px-0 mb-5">
+                  <div class="row justify-content-center">
+                    <div class="col-12 mb-4">
+                      <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                        <div class="card-header text-center" style="background-color: #f1f6f9; border-bottom: 2px solid #A0522D; font-weight: 600; font-size: 1.2rem; padding: 12px;">Model Performance Across Hop Depths</div>
+                        <div class="card-body p-4">
+                          <!-- Larger single graph view -->
+                          <div class="row mb-4">
+                            <div class="col-lg-10 offset-lg-1">
+                              <div class="card shadow-sm mb-4">
+                                <div class="card-header text-center" style="background-color: #f8f9fa; font-weight: 500; font-size: 1.1rem;">64k Tokens</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/0e0192ec-a880-4fef-b4ae-1c74a0f8b979 (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/0e0192ec-a880-4fef-b4ae-1c74a0f8b979 (1).png" alt="Model Performance @ 64k Tokens" class="img-fluid" style="width: 100%; max-height: 450px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <!-- Two smaller graphs in a row -->
+                          <div class="row">
+                            <div class="col-md-6 mb-3">
+                              <div class="card h-100 shadow-sm">
+                                <div class="card-header text-center" style="background-color: #f8f9fa; font-weight: 500; font-size: 1.1rem;">96k Tokens</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/5df64999-94ae-4d98-8d57-f871c9c47333 (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/5df64999-94ae-4d98-8d57-f871c9c47333 (1).png" alt="Model Performance @ 96k Tokens" class="img-fluid" style="width: 100%; min-height: 300px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                              <div class="card h-100 shadow-sm">
+                                <div class="card-header text-center" style="background-color: #f8f9fa; font-weight: 500; font-size: 1.1rem;">128k Tokens</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/69281487-97ee-4580-94b7-84f857c1bbdb (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/69281487-97ee-4580-94b7-84f857c1bbdb (1).png" alt="Model Performance @ 128k Tokens" class="img-fluid" style="width: 100%; min-height: 300px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-center mt-4 mb-1" style="font-size: 1.05rem; font-style: italic; color: #555;">These visualizations demonstrate that even top-performing models experience significant performance degradation as reasoning depth increases, especially at longer context lengths.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Second set of graphs: Model Performance Across Context Lengths -->
+                <h6 style="color: #A0522D; margin-top: 30px; font-size: 1.3rem; text-align: center;">Model Performance Across Context Lengths</h6>
+                <p style="margin-bottom: 1.5em; font-size: 1.05rem; text-align: center;">These graphs show how model accuracy changes with increasing context length for each hop level, highlighting the combined challenge of long contexts and multi-hop reasoning.</p>
+                
+                <div class="container-fluid px-0 mb-5">
+                  <div class="row justify-content-center">
+                    <div class="col-12 mb-4">
+                      <div class="card shadow-sm border-0" style="background-color: #f8f9fa;">
+                        <div class="card-body p-4">
+                          <div class="row">
+                            <div class="col-md-6 mb-4">
+                              <div class="card h-100 shadow-sm">
+                                <div class="card-header text-center" style="background-color: #f1f6f9; border-bottom: 2px solid #A0522D; font-weight: 500; font-size: 1.1rem;">Hop Level 1</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/1af1f5d4-5b8a-44a5-8ffc-4db97f33e2bb (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/1af1f5d4-5b8a-44a5-8ffc-4db97f33e2bb (1).png" alt="Model Performance Across Context Lengths @ Hop Level 1" class="img-fluid" style="width: 100%; min-height: 300px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="card h-100 shadow-sm">
+                                <div class="card-header text-center" style="background-color: #f1f6f9; border-bottom: 2px solid #A0522D; font-weight: 500; font-size: 1.1rem;">Hop Level 2</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/99789369-3849-4a8e-8296-1da806c58d7e (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/99789369-3849-4a8e-8296-1da806c58d7e (1).png" alt="Model Performance Across Context Lengths @ Hop Level 2" class="img-fluid" style="width: 100%; min-height: 300px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="card h-100 shadow-sm">
+                                <div class="card-header text-center" style="background-color: #f1f6f9; border-bottom: 2px solid #A0522D; font-weight: 500; font-size: 1.1rem;">Hop Level 3</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/bd71019a-3e7c-4573-8700-028af04f019c (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/bd71019a-3e7c-4573-8700-028af04f019c (1).png" alt="Model Performance Across Context Lengths @ Hop Level 3" class="img-fluid" style="width: 100%; min-height: 300px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                              <div class="card h-100 shadow-sm">
+                                <div class="card-header text-center" style="background-color: #f1f6f9; border-bottom: 2px solid #A0522D; font-weight: 500; font-size: 1.1rem;">Hop Level 4</div>
+                                <div class="card-body text-center p-0">
+                                  <a href="logo/97d1ff7a-0cf3-4dca-bb66-70a9c8c47209 (1).png" target="_blank" title="Click to view full size">
+                                    <img src="logo/97d1ff7a-0cf3-4dca-bb66-70a9c8c47209 (1).png" alt="Model Performance Across Context Lengths @ Hop Level 4" class="img-fluid" style="width: 100%; min-height: 300px; object-fit: contain; border-radius: 0 0 8px 8px;">
+                                  </a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p class="text-center mt-3 mb-0" style="font-size: 1.05rem; font-style: italic; color: #555;">These graphs reveal that while context length affects performance, the impact is more pronounced at higher hop levels, suggesting that reasoning complexity is a stronger factor in model performance degradation than just context length alone.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="tab-pane fade" id="paper-content" role="tabpanel" aria-labelledby="paper-tab">
                 <div class="p-4">
-                  <h4 class="mb-4">EnDive: A Cross-Dialect Benchmark for Fairness and Performance in LLMs</h4>
-                  
-                  <div class="mb-4">
-                    <h5 style="color: #21807a;">Purpose & Motivation</h5>
-                    <p>The diversity of human language presents significant challenges for NLP systems. While English serves as a global lingua franca, its dialects exhibit substantial variation that often goes unaddressed in language technologies (<a href="https://www.cambridge.org/core/books/dialectology/3B5DB46311E1C43A8B15003717350F58" target="_blank">Chambers and Trudgill, 1998</a>). This oversight perpetuates discrimination against dialect speakers in critical domains like education and employment (<a href="https://journals.sagepub.com/doi/10.1177/0261927X99018001002" target="_blank">Purnell et al., 1999</a>; <a href="https://arxiv.org/abs/2403.00742" target="_blank">Hofmann et al., 2024</a>).</p>
-                    <p>Recent studies reveal systemic biases in LLM processing of non-standard dialects (<a href="https://arxiv.org/abs/2406.08818" target="_blank">Fleisig et al., 2024</a>; <a href="https://arxiv.org/abs/2401.12720" target="_blank">Resende et al., 2024</a>)—from toxic speech misclassification of African American Vernacular English tweets (<a href="https://aclanthology.org/P19-1163/" target="_blank">Sap et al., 2019</a>) to parsing errors in Chicano and Jamaican English (<a href="https://link.springer.com/book/10.1057/9780230510012" target="_blank">Fought, 2003</a>; <a href="https://benjamins.com/catalog/cll.20" target="_blank">Patrick, 1999</a>).</p>
-                    <p>EnDive addresses these gaps by providing a comprehensive benchmark that evaluates seven state-of-the-art LLMs across reasoning tasks in five underrepresented English dialects:</p>
-                    <ul>
-                      <li><strong>African American Vernacular English (AAVE):</strong> 33M speakers with distinct syntax/phonology (<a href="https://www.taylorfrancis.com/books/mono/10.4324/9780203348802/english-accent-rosina-lippi-green" target="_blank">Lippi-Green, 1997</a>)</li>
-                      <li><strong>Indian English (IndE):</strong> 250M speakers blending local/colonial influences (<a href="https://www.jstor.org/stable/414536" target="_blank">Kachru, 1983</a>)</li>
-                      <li><strong>Jamaican English (JamE):</strong> Diaspora language with mesolectal variation (<a href="https://benjamins.com/catalog/cll.20" target="_blank">Patrick, 1999</a>)</li>
-                      <li><strong>Chicano English (ChcE):</strong> Spanish-influenced variety in US Hispanic communities (<a href="https://link.springer.com/book/10.1057/9780230510012" target="_blank">Fought, 2003</a>)</li>
-                      <li><strong>Colloquial Singaporean English (CollSgE):</strong> Multicultural creole with Asian substrates (<a href="https://openlibrary.org/books/OL4420856M/English_in_Singapore_and_Malaysia" target="_blank">Platt and Weber, 1980</a>)</li>
-                    </ul>
-                  </div>
-                  
-                  <div class="mb-4">
-                    <h5 style="color: #21807a;">Methodology</h5>
-                    <p><strong>Dataset Construction:</strong> EnDive curates challenges from 12 established datasets spanning four core reasoning categories:</p>
-                    <ul>
-                      <li><strong>Language Understanding:</strong> BoolQ, MultiRC, WSC, SST-2, COPA</li>
-                      <li><strong>Algorithmic Understanding:</strong> HumanEval, MBPP</li>
-                      <li><strong>Mathematics:</strong> GSM8K, SVAMP</li>
-                      <li><strong>Logic:</strong> LogicBench, FOLIO</li>
-                    </ul>
-                    
-                    <p><strong>Dialect Translation:</strong> Using few-shot prompting with GPT-4o and verified examples from <a href="https://ewave-atlas.org/" target="_blank">eWAVE</a> (Kortmann et al., 2020), tasks are translated from SAE to target dialects while preserving sociolinguistic nuance. Example prompts used during translations can be found in our <a href="https://github.com/endiveee/EnDive-Code" target="_blank">GitHub</a>.</p>
+                  <h4 class="mb-4">NovelHopQA: Diagnosing Multi-Hop Reasoning Failures in Long Narrative Contexts</h4>
+                  <div>
+  <h5 style="color: #A0522D;">Paper Overview</h5>
+  <p><strong>NovelHopQA</strong> is the first benchmark to jointly vary both hop depth (1–4 hops) and context length (64k–128k tokens) in natural narrative settings. Current large language models (LLMs) struggle to answer questions that span tens of thousands of tokens, especially when multi-hop reasoning is involved. Prior benchmarks explore long-context comprehension or multi-hop reasoning in isolation, but none jointly vary context length and reasoning depth in natural narrative settings. When crucial evidence is buried in the middle of a long context, accuracy can plunge by more than 20 points <a href="https://arxiv.org/abs/2307.03172" target="_blank">(Liu et al., 2023)</a>. Even frontier models score below 50% exact match on multi-document suites, showing that larger context windows alone cannot solve cross-document reasoning.</p>
 
-                    
-                    <p><strong>Quality Filtering:</strong> To eliminate superficial transformations, BLEU-based filtering removes translations with scores ≥0.7 against their SAE sources—retaining only substantive linguistic variations that challenge LLMs' dialect understanding.</p>
-                    
-                    <p><strong>Human Validation:</strong> Native speakers of each dialect assessed 120 randomly sampled translations on four dimensions using 7-point Likert scales:</p>
-                    
-                    <div class="table-responsive mb-3">
-                      <table class="table table-bordered table-sm">
-                        <thead class="thead-light">
-                          <tr>
-                            <th>Dialect</th>
-                            <th>Faithfulness</th>
-                            <th>Fluency</th>
-                            <th>Formality</th>
-                            <th>Info Retention</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>AAVE</td>
-                            <td>6.28</td>
-                            <td>6.28</td>
-                            <td>6.28</td>
-                            <td>6.63</td>
-                          </tr>
-                          <tr>
-                            <td>ChcE</td>
-                            <td>6.40</td>
-                            <td>6.33</td>
-                            <td>6.26</td>
-                            <td>6.71</td>
-                          </tr>
-                          <tr>
-                            <td>IndE</td>
-                            <td>6.45</td>
-                            <td>6.62</td>
-                            <td>6.59</td>
-                            <td>6.91</td>
-                          </tr>
-                          <tr>
-                            <td>JamE</td>
-                            <td>6.37</td>
-                            <td>6.28</td>
-                            <td>6.33</td>
-                            <td>6.66</td>
-                          </tr>
-                          <tr>
-                            <td>CollSgE</td>
-                            <td>6.19</td>
-                            <td>6.11</td>
-                            <td>6.02</td>
-                            <td>6.52</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <p class="small text-muted">Table 1: Native speaker evaluation scores (1-7 scale), showing high quality across all metrics.</p>
-                  </div>
-                  
-                  <div class="mb-4">
-                    <h5 style="color: #21807a;">Key Findings</h5>
-                    
-                    <p><strong>Performance Gaps:</strong> All seven models (including top-tier systems like o1 and Gemini 2.5 Pro) demonstrate consistent performance drops when evaluated on dialectal inputs compared to SAE prompts. The average gap ranges from 2.69% to over 12.37%.</p>
-                    
-                    <p><strong>Model-Specific Disparities:</strong></p>
-                    <ul>
-                      <li><strong>Top-Tier Models:</strong> o1 and Gemini 2.5 Pro deliver the strongest performance across all dialects but still exhibit performance gaps of 3-5 points between dialectal and SAE inputs.</li>
-                      <li><strong>Mid-Tier Models:</strong> GPT-4o, DeepSeek-v3, and Claude 3.5 Sonnet show gaps exceeding 9 points in multiple dialects.</li>
-                      <li><strong>Smaller Models:</strong> GPT-4o-mini and LLaMa-3-8B Instruct consistently yield lower accuracies and exhibit wider gaps between dialectal and SAE inputs.</li>
-                    </ul>
-                    
-                    <p><strong>Dialect-Induced Errors:</strong> Common failure modes include semantic misalignment where models misinterpret polarity in dialectal inputs. Constructions like double negatives ("ain't no one"), habitual aspect ("don't be"), or markers like "been had" often cause models to flip the correct answer.</p>
-                  
-                  <div class="mb-4">
-                    <h5 style="color: #21807a;">Implications & Impact</h5>
-                    <p>EnDive reveals that current language models, regardless of scale, exhibit dialectal bias. Even the best-performing models show measurable degradation across dialects, with performance gaps persisting across model tiers.</p>
-                    <p>These findings highlight the need for more inclusive language technologies that serve all linguistic communities equitably, especially in high-stakes domains like education, healthcare, and legal services where dialect disparities can lead to real-world discrimination.</p>
-                  </div>
-                  
-                  <div class="mb-4">
-                    <h5 style="color: #21807a;">Related Works</h5>
-                    <p>EnDive builds upon and extends several key research directions in dialect-aware NLP:</p>
-                    <ul class="pl-3">
-                      <li><a href="https://aclanthology.org/2022.acl-long.258/" target="_blank">VALUE: Understanding Dialect Disparity in NLU</a> (Ziems et al., 2022): Early work establishing the need for dialect-aware evaluation in NLP.</li>
-                      <li><a href="https://arxiv.org/abs/2212.08011" target="_blank">Multi-VALUE: A Framework for Cross-Dialectal English NLP</a> (Ziems et al., 2023): Rule-based framework for transforming SAE into target dialects using lexical substitutions.</li>
-                      <li><a href="https://arxiv.org/abs/2408.14845" target="_blank">AAVENUE: Detecting LLM Biases on NLU Tasks in AAVE</a> (Gupta et al., 2024): Human-validated benchmark specifically for AAVE.</li>
-                      <li><a href="https://arxiv.org/abs/2405.15145" target="_blank">CulturePark: Boosting Cross-Cultural Understanding in LLMs</a> (Li et al., 2024): Hybrid methodology for cross-cultural dialogue evaluation.</li>
-                      <li><a href="https://arxiv.org/abs/2409.11404" target="_blank">AraDiCE: Benchmarks for Dialectal and Cultural Capabilities in LLMs</a> (Mousi et al., 2024): Similar benchmark focused on Arabic dialects.</li>
-                      <li><a href="https://arxiv.org/abs/2403.00742" target="_blank">Dialect Prejudice Predicts AI Decisions About People</a> (Hofmann et al., 2024): Links LLM dialect biases to real-world discrimination in employment, criminality, and medical diagnoses.</li>
-                      <li><a href="https://arxiv.org/abs/2401.12720" target="_blank">A Comprehensive View of the Biases of Toxicity and Sentiment Analysis Methods Towards Utterances with African American English Expressions</a> (Resende et al., 2024): Examines biases in toxicity detection systems against AAVE speakers.</li>
-                    </ul>
-                  </div>
+  <h5 style="color: #A0522D; margin-top: 20px;">Related Work</h5>
+<p>NovelHopQA builds upon and extends several foundational directions in long-context and multi-hop question answering:</p>
+<ul style="padding-left: 20px;">
+  <li><strong>WikiHop &amp; HotpotQA: Early Multi-Hop Reasoning</strong> (<a href="https://arxiv.org/abs/1710.06481" target="_blank">Welbl et al., 2018</a>; <a href="https://arxiv.org/abs/1809.09600" target="_blank">Yang et al., 2018</a>): Pioneered multi-hop QA over short Wikipedia passages, catalyzing advances in compositional reasoning but limited to short contexts.</li>
+  <li><strong>NarrativeQA, QuALITY, NovelQA, NoCha: Long-Context Comprehension</strong> (<a href="https://arxiv.org/abs/1712.07040" target="_blank">Kociský et al., 2017</a>; <a href="https://arxiv.org/abs/2112.08608" target="_blank">Pang et al., 2022</a>; <a href="https://arxiv.org/abs/2403.12766" target="_blank">Wang et al., 2024a</a>; <a href="https://arxiv.org/abs/2406.16264" target="_blank">Karpinska et al., 2024</a>): Benchmarks using book- or script-length narratives, focusing on single-hop or summary questions, with NovelQA and NoCha raising the ceiling to 200k tokens and including some multi-hop items.</li>
+  <li><strong>MuSiQue &amp; BABILong: Synthetic Stress Tests</strong> (<a href="https://arxiv.org/abs/2108.00573" target="_blank">Trivedi et al., 2022</a>; <a href="https://arxiv.org/abs/2406.10149" target="_blank">Kuratov et al., 2024</a>): Introduce compositional and multi-hop questions using synthetic or stitched contexts, probing model brittleness at scale.</li>
+  <li><strong>LongBench, LEval, RULER, Marathon: Standardized Long-Context Evaluation</strong> (<a href="https://arxiv.org/abs/2308.14508" target="_blank">Bai et al., 2024</a>; <a href="https://arxiv.org/abs/2307.11088" target="_blank">An et al., 2023</a>; <a href="https://arxiv.org/abs/2404.06654" target="_blank">Hsieh et al., 2024</a>; <a href="https://arxiv.org/abs/2312.09542" target="_blank">Zhang et al., 2024</a>): Evaluate LLMs on tasks with large context windows, but typically keep reasoning depth fixed.</li>
+  <li><strong>FanOutQA &amp; Loong: Multi-Document and Breadth-Oriented QA</strong> (<a href="https://arxiv.org/abs/2402.14116" target="_blank">Zhu et al., 2024</a>; <a href="https://arxiv.org/abs/2406.17419" target="_blank">Wang et al., 2024b</a>): Assess cross-document and multi-hop reasoning over multiple Wikipedia pages or diverse domains, with FanOutQA focusing on breadth and Loong on domain diversity.</li>
+  <li><strong>LooGLE &amp; LV-Eval: Robustness and Length Control</strong> (<a href="https://arxiv.org/abs/2311.04939" target="_blank">Li et al., 2024a</a>; <a href="https://arxiv.org/abs/2402.05136" target="_blank">Yuan et al., 2024</a>): Control for training-data leakage, add misleading facts, and test robustness across length bands up to 256k tokens.</li>
+  <li><strong>Architectural Advances: Longformer, BigBird, Transformer-XL, LongRoPE</strong> (<a href="https://arxiv.org/abs/2004.05150" target="_blank">Beltagy et al., 2020</a>; <a href="https://arxiv.org/abs/2007.14062" target="_blank">Zaheer et al., 2021</a>; <a href="https://arxiv.org/abs/1901.02860" target="_blank">Dai et al., 2019</a>; <a href="https://arxiv.org/abs/2402.13753" target="_blank">Ding et al., 2024</a>): Enable LLMs to process tens or hundreds of thousands of tokens using sparse attention, recurrence, and advanced positional encodings.</li>
+  <li><strong>Retrieval-Augmented and Memory Approaches</strong> (<a href="https://arxiv.org/abs/2005.11401" target="_blank">Lewis et al., 2021</a>; <a href="https://arxiv.org/abs/2203.08913" target="_blank">Wu et al., 2022</a>; <a href="https://arxiv.org/abs/2310.03025" target="_blank">Xu et al., 2024</a>; <a href="https://arxiv.org/abs/2408.03246" target="_blank">Li et al., 2024c</a>): Improve long-context QA by combining retrieval and external memory with LLMs, outperforming context-only baselines at scale.</li>
+  <li><strong>Failure Mode Analyses: Lost in the Middle, NeedleBench</strong> (<a href="https://arxiv.org/abs/2307.03172" target="_blank">Liu et al., 2023a,b</a>; <a href="https://arxiv.org/abs/2407.11963" target="_blank">Li et al., 2024b</a>): Reveal that even with large windows, models struggle with positional and retrieval brittleness, especially when evidence is scattered.</li>
+</ul>
+<p>NovelHopQA is the first benchmark to jointly vary both context length and reasoning depth in natural narrative settings, providing a controlled diagnostic for multi-hop reasoning at scale.</p>
+
+  <h5 style="color: #A0522D; margin-top: 20px;">Benchmark Features</h5>
+  <div class="table-responsive mb-3">
+    <table class="table table-bordered table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th>Feature</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Number of QA examples</td><td>4,000</td></tr>
+        <tr><td>Source novels</td><td>83 (Project Gutenberg)</td></tr>
+        <tr><td>Context window sizes</td><td>64k, 128k tokens</td></tr>
+        <tr><td>Reasoning hops</td><td>1–4</td></tr>
+        <tr><td>Human validation</td><td>&gt;6.5/7 alignment, &gt;94% hop-match accuracy</td></tr>
+      </tbody>
+    </table>
+
+
+  <h5 style="color: #A0522D; margin-top: 20px;">Methodology Pipeline</h5>
+  <h6 style="color: #A0522D; margin-top: 18px; font-size: 1.1em;">Simplified Methodology</h6>
+  <div style="text-align:center; margin: 1.5em 0 1.5em 0;">
+    <img src="logo/Untitled_drawing_5-1.png" alt="Simplified Methodology Diagram" style="max-width: 95%; height: auto; border-radius: 12px; box-shadow: 0 4px 16px rgba(80,80,80,0.06); border: 1px solid #e0e0e0;">
+    <div style="font-size: 1.05em; color: #555; margin-top: 0.7em; font-style: italic;">
+      <strong>Figure:</strong> <span style="color:#A0522D;">Simplified Methodology.</span> NovelHopQA constructs multi-hop QA chains by extracting high-frequency keywords from novels, filtering paragraphs, and incrementally building reasoning paths (hops) that culminate in challenging question–answer pairs. Each hop integrates more context, enabling deeper reasoning.
+    </div>
+  </div>
+  <h6 style="color: #A0522D; margin-top: 22px; font-size: 1.1em;">Technical Pipeline Details</h6>
+  <p style="margin-bottom: 0.7em;">
+    For each book and hop depth <b>H</b> ∈ {1, 2, 3, 4}, we assemble contexts and QA pairs as follows:
+  </p>
+  <ol style="padding-left: 22px;">
+    <li><b>Hop 1:</b> Select a paragraph containing one of the book’s anchor keywords <b>k₁</b>. Prompt GPT-4o to generate a single-hop QA pair (<i>Q₁, A₁</i>) from this paragraph.</li>
+    <li><b>Hops h ∈ {2–H}:</b>
+      <ol type="a" style="padding-left: 18px;">
+        <li>Extract a new keyword <b>k<sub>h</sub></b> from the context <b>C<sub>h-1</sub></b> using a related-keyword prompt.</li>
+        <li>Sample a paragraph that contains both <b>k₁</b> and <b>k<sub>h</sub></b>, and append it to the growing context <b>C<sub>h</sub> = C<sub>h-1</sub> ∥ new-paragraph</b>.</li>
+        <li>Prompt GPT-4o to re-generate a single QA pair (<i>Q<sub>h</sub>, A<sub>h</sub></i>) over the full context <b>C<sub>h</sub></b>, ensuring the new QA integrates evidence from all <b>h</b> paragraphs.</li>
+      </ol>
+    </li>
+    <li><b>Paragraph Exclusivity:</b> Remove each selected paragraph from the pool to prevent reuse. If no matching paragraph is found after seven attempts, abort the chain and restart with a fresh anchor.</li>
+  </ol>
+  <p style="margin-bottom: 1.2em;">
+    This process matures each datapoint from (<i>C₁, Q₁, A₁</i>) through (<i>C<sub>H</sub>, Q<sub>H</sub>, A<sub>H</sub></i>), yielding coherent multi-hop QA examples grounded in authentic narrative context. Each 64k, 96k, or 128k window is sampled from a continuous span, with all hop paragraphs required to fall within it—ensuring the QA chain reflects a cohesive narrative flow.
+  </p>
+  <p style="margin-bottom: 0.7em;"><b>Golden-Context Filtering:</b> To ensure answerability, all six models are evaluated on the original golden contexts used to generate each QA pair. Any question missed by any model is discarded, resulting in a dataset where all retained QA pairs are answerable by current leading models. This step ensures high dataset validity; detailed results are provided in the research paper.</p>
+  <p style="margin-bottom: 1.2em;"><b>Irrelevant and No-Context Sanity Check:</b> To confirm that questions require actual reasoning and are not solvable by recall alone, 800 QA pairs (100 per hop) are tested under irrelevant and no-context conditions. Models perform poorly in these settings, indicating that correct answers depend on contextual grounding rather than memorization. This strengthens the benchmark's focus on true reasoning. Detailed results are provided in the research paper.</p>
+
+  <h5 style="color: #A0522D; margin-top: 20px;">Human Validation Results</h5>
+  <p style="margin-bottom: 1em;">
+    The following table reports the average scores from 10 independent human annotators who evaluated the alignment and hop-match accuracy for each hop depth <b>H ∈ {1, 2, 3, 4}</b>. Alignment is rated on a 1–7 Likert scale, and Hop Match measures the percentage of questions judged to require exactly <b>H</b> reasoning steps. High average alignment (&gt;6.5/7) and hop-match (&gt;94%) indicate strong dataset quality and clear multi-hop structure. These results demonstrate that the questions are both contextually grounded and require the intended number of reasoning steps.
+  </p>
+  <div class="table-responsive mb-3">
+    <table class="table table-bordered table-sm">
+      <thead class="thead-light">
+        <tr>
+          <th>Metric</th>
+          <th>H = 1</th>
+          <th>H = 2</th>
+          <th>H = 3</th>
+          <th>H = 4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><b>Alignment (1–7)</b></td><td>6.69</td><td>6.58</td><td>6.58</td><td>6.57</td></tr>
+        <tr><td><b>Hop Match (%)</b></td><td>95.9</td><td>94.9</td><td>94.9</td><td>95.2</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h5 style="color: #A0522D; margin-top: 20px;">Evaluation Results</h5>
+  <p style="margin-bottom: 1em;">
+    We evaluated six state-of-the-art models: o1, GPT-4o, GPT-4o-mini, Gemini 2.5 Pro, Gemini 2.0 Flash, and Gemini 2.0 Flash Lite. Key findings:
+  </p>
+  <ul style="padding-left: 22px;">
+    <li><strong>Impact of hop depth:</strong> All models exhibit consistent performance degradation as hop depth increases. On average, accuracy drops roughly 12 points from 1-hop to 4-hop at 64k context length.</li>
+    <li><strong>Impact of context length:</strong> Longer contexts also lead to reduced accuracy, though the effect is milder than that of hop count. Across models, 1-hop performance drops about 5 points when moving from 64k to 128k contexts.</li>
+    <li><strong>No model maintains strong performance</strong> on the hardest tasks (4-hop at 128k), where even top models dip below 80% accuracy.</li>
+  </ul>
+  <p style="margin-bottom: 1em;">
+    These results highlight that simply increasing context window size isn't enough—robust multi-hop reasoning remains a key challenge for LLMs, even at the frontier of model capabilities.
+  </p>
+</div>
                 </div>
               </div>
             </div>
@@ -476,12 +516,31 @@ This table compares how accurately different language models perform on Standard
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
-            <p class="copyright text-muted">EnDive © 2025 Algoverse AI Research</p>
-            <p class="small text-muted" style="margin-top: 0.25em;">Template adapted from <a href="https://github.com/bird-bench/bird-bench.github.io" target="_blank">bird-bench</a></p>
+            <p class="copyright text-muted">NovelHopQA © 2025 Algoverse AI Research</p>
+            <div class="template-credit-fixed">
+              <p class="small text-muted">Template adapted from <a href="https://github.com/bird-bench/bird-bench.github.io" target="_blank">bird-bench</a></p>
+            </div>
           </div>
         </div>
       </div>
     </footer>
+
+    <style>
+      .template-credit-fixed {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        background: rgba(255,255,255,0.9);
+        padding: 6px 12px;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      .template-credit-fixed p {
+        margin: 0;
+        font-size: 0.95em;
+      }
+    </style>
 
     <!-- Bootstrap core JavaScript -->
     <script src="./style/jquery.min.js"></script>
